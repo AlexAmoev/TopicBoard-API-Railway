@@ -2,8 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Topic.Data;
 
 #nullable disable
@@ -18,33 +18,32 @@ namespace Topic.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.6")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
 
@@ -67,19 +66,19 @@ namespace Topic.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -92,19 +91,19 @@ namespace Topic.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -116,17 +115,17 @@ namespace Topic.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -138,10 +137,10 @@ namespace Topic.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -170,16 +169,16 @@ namespace Topic.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
@@ -190,23 +189,23 @@ namespace Topic.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Comment")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("PostedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("TopicEntityId")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -221,7 +220,7 @@ namespace Topic.Data.Migrations
                         {
                             Id = 1,
                             Comment = "Test",
-                            PostedDate = new DateTime(2024, 6, 8, 18, 28, 49, 25, DateTimeKind.Local).AddTicks(8246),
+                            PostedDate = new DateTime(2026, 5, 23, 22, 5, 0, 599, DateTimeKind.Local).AddTicks(8936),
                             TopicEntityId = 1,
                             UserId = "8716071C-1D9B-48FD-B3D0-F059C4FB8031"
                         });
@@ -231,29 +230,29 @@ namespace Topic.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CommentsCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("State")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -266,7 +265,7 @@ namespace Topic.Data.Migrations
                         {
                             Id = 1,
                             CommentsCount = 1,
-                            StartDate = new DateTime(2024, 6, 8, 18, 28, 49, 25, DateTimeKind.Local).AddTicks(8100),
+                            StartDate = new DateTime(2026, 5, 23, 22, 5, 0, 599, DateTimeKind.Local).AddTicks(8811),
                             State = 1,
                             Status = 1,
                             Title = "Test",
@@ -277,54 +276,54 @@ namespace Topic.Data.Migrations
             modelBuilder.Entity("Topic.Entities.User", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
@@ -333,8 +332,7 @@ namespace Topic.Data.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
 
@@ -343,16 +341,16 @@ namespace Topic.Data.Migrations
                         {
                             Id = "8716071C-1D9B-48FD-B3D0-F059C4FB8031",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "756f74cf-f399-4315-8117-a30d964a913b",
+                            ConcurrencyStamp = "013d25ee-135f-4c97-8a50-1a08e2fc2052",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBo4ii+pOHWR5TAb6OdeNOm2ZGrRkZ24mHCBjMfWy6wQVT+UjxDi5hzHrLiOHD5bhg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO3vYIZXdJ7KJK0vEwnLNBfwLWrneDDceLKYs0wILdOl3QRC11FyLtILdyRQEFg9Fw==",
                             PhoneNumber = "555337681",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "46309d45-56c9-42db-8ab3-459ebc07b468",
+                            SecurityStamp = "70c4b933-9ea8-48c4-96a0-d2e8b59c53ef",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
@@ -360,16 +358,16 @@ namespace Topic.Data.Migrations
                         {
                             Id = "D514EDC9-94BB-416F-AF9D-7C13669689C9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6bfad177-390d-4f9b-9c53-2ecc4320bbc8",
+                            ConcurrencyStamp = "601517ab-3f7a-4125-ae21-e263f10db30a",
                             Email = "nika@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "NIKA@GMAIL.COM",
                             NormalizedUserName = "NIKA@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFUm4ssUQytRIQ27qYe40EdQmCyD8eK7WSDszpChnqZ/ofhml/p6ld1codoadllPhw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOX1MTR2G2DepSYjba2MR9ibFI3n+8x7aufHdyYBBa+k8mFoX/mcF20kyvMsq/uXYg==",
                             PhoneNumber = "558490645",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "93b47a9f-38d7-44e2-b1a6-1766960bfcfc",
+                            SecurityStamp = "e7ebbcd8-4f47-4649-81bb-dba83ff611fb",
                             TwoFactorEnabled = false,
                             UserName = "nika@gmail.com"
                         },
@@ -377,16 +375,16 @@ namespace Topic.Data.Migrations
                         {
                             Id = "87746F88-DC38-4756-924A-B95CFF3A1D8A",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4de48351-545f-4518-a9f3-7eb01061eb3a",
+                            ConcurrencyStamp = "b744fa1f-71c4-4362-a598-d902d4c62b16",
                             Email = "gio@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "GIO@GMAIL.COM",
                             NormalizedUserName = "GIO@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGWC+GVA+oK81eB5wIQhVggIwPiiFhJcAs1xVjSn735FoYt3EYIuQmpBZhtGmYWpqw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM3F9X5IldgTPXwr/4e3NlpJFi+OiUe86e1jsySzMMrqAQKpA4ghARUkLBO23rS6KQ==",
                             PhoneNumber = "551442269",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eb9d9119-2d73-4f29-a8d3-c4c551e2c931",
+                            SecurityStamp = "486adbd9-0cfd-4ba3-9130-0a46bfdfb7e4",
                             TwoFactorEnabled = false,
                             UserName = "gio@gmail.com"
                         });
