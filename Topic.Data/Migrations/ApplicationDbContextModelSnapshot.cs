@@ -220,7 +220,7 @@ namespace Topic.Data.Migrations
                         {
                             Id = 1,
                             Comment = "Test",
-                            PostedDate = new DateTime(2026, 5, 23, 22, 5, 0, 599, DateTimeKind.Local).AddTicks(8936),
+                            PostedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             TopicEntityId = 1,
                             UserId = "8716071C-1D9B-48FD-B3D0-F059C4FB8031"
                         });
@@ -265,7 +265,7 @@ namespace Topic.Data.Migrations
                         {
                             Id = 1,
                             CommentsCount = 1,
-                            StartDate = new DateTime(2026, 5, 23, 22, 5, 0, 599, DateTimeKind.Local).AddTicks(8811),
+                            StartDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             State = 1,
                             Status = 1,
                             Title = "Test",
@@ -341,16 +341,16 @@ namespace Topic.Data.Migrations
                         {
                             Id = "8716071C-1D9B-48FD-B3D0-F059C4FB8031",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "013d25ee-135f-4c97-8a50-1a08e2fc2052",
+                            ConcurrencyStamp = "576662a2-4e2a-4dab-8b2f-4715df8267d6",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO3vYIZXdJ7KJK0vEwnLNBfwLWrneDDceLKYs0wILdOl3QRC11FyLtILdyRQEFg9Fw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB/ix7RARkCy3UVwQ0GWR9jCdhIeqgw3FSKq8BNwvkTDsHKmyI9IgmzEWZ4MPdhcig==",
                             PhoneNumber = "555337681",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "70c4b933-9ea8-48c4-96a0-d2e8b59c53ef",
+                            SecurityStamp = "0c12c4e8-a637-41f3-a225-50ea94ee987d",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         },
@@ -358,16 +358,16 @@ namespace Topic.Data.Migrations
                         {
                             Id = "D514EDC9-94BB-416F-AF9D-7C13669689C9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "601517ab-3f7a-4125-ae21-e263f10db30a",
+                            ConcurrencyStamp = "d0a4b1c3-8072-4389-8f82-0b326be3d559",
                             Email = "nika@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "NIKA@GMAIL.COM",
                             NormalizedUserName = "NIKA@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOX1MTR2G2DepSYjba2MR9ibFI3n+8x7aufHdyYBBa+k8mFoX/mcF20kyvMsq/uXYg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECpxqnlpvbEDsTEgEHsDjDTboB9M52hVVcWKZl6J72kSFCnOKCz3W6LYu8IuawnBkQ==",
                             PhoneNumber = "558490645",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e7ebbcd8-4f47-4649-81bb-dba83ff611fb",
+                            SecurityStamp = "bca6fec0-3618-4e9e-a69c-4da2b691bade",
                             TwoFactorEnabled = false,
                             UserName = "nika@gmail.com"
                         },
@@ -375,16 +375,16 @@ namespace Topic.Data.Migrations
                         {
                             Id = "87746F88-DC38-4756-924A-B95CFF3A1D8A",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b744fa1f-71c4-4362-a598-d902d4c62b16",
+                            ConcurrencyStamp = "79372107-9d94-4c2a-9d35-a3d7db444a3a",
                             Email = "gio@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "GIO@GMAIL.COM",
                             NormalizedUserName = "GIO@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM3F9X5IldgTPXwr/4e3NlpJFi+OiUe86e1jsySzMMrqAQKpA4ghARUkLBO23rS6KQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECQNLFF1151UTNUSCyMvylUxLa297kTowSL40Jzb1BaqybFQ8XCU3JOcqVo3nTERhw==",
                             PhoneNumber = "551442269",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "486adbd9-0cfd-4ba3-9130-0a46bfdfb7e4",
+                            SecurityStamp = "74685b74-5da5-40ca-99b6-01b1effee287",
                             TwoFactorEnabled = false,
                             UserName = "gio@gmail.com"
                         });

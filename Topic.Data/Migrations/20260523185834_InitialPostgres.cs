@@ -225,9 +225,9 @@ namespace Topic.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "8716071C-1D9B-48FD-B3D0-F059C4FB8031", 0, "013d25ee-135f-4c97-8a50-1a08e2fc2052", "admin@gmail.com", false, true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAEO3vYIZXdJ7KJK0vEwnLNBfwLWrneDDceLKYs0wILdOl3QRC11FyLtILdyRQEFg9Fw==", "555337681", false, "70c4b933-9ea8-48c4-96a0-d2e8b59c53ef", false, "admin@gmail.com" },
-                    { "87746F88-DC38-4756-924A-B95CFF3A1D8A", 0, "b744fa1f-71c4-4362-a598-d902d4c62b16", "gio@gmail.com", false, true, null, "GIO@GMAIL.COM", "GIO@GMAIL.COM", "AQAAAAIAAYagAAAAEM3F9X5IldgTPXwr/4e3NlpJFi+OiUe86e1jsySzMMrqAQKpA4ghARUkLBO23rS6KQ==", "551442269", false, "486adbd9-0cfd-4ba3-9130-0a46bfdfb7e4", false, "gio@gmail.com" },
-                    { "D514EDC9-94BB-416F-AF9D-7C13669689C9", 0, "601517ab-3f7a-4125-ae21-e263f10db30a", "nika@gmail.com", false, true, null, "NIKA@GMAIL.COM", "NIKA@GMAIL.COM", "AQAAAAIAAYagAAAAEOX1MTR2G2DepSYjba2MR9ibFI3n+8x7aufHdyYBBa+k8mFoX/mcF20kyvMsq/uXYg==", "558490645", false, "e7ebbcd8-4f47-4649-81bb-dba83ff611fb", false, "nika@gmail.com" }
+                    { "8716071C-1D9B-48FD-B3D0-F059C4FB8031", 0, "576662a2-4e2a-4dab-8b2f-4715df8267d6", "admin@gmail.com", false, true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAEB/ix7RARkCy3UVwQ0GWR9jCdhIeqgw3FSKq8BNwvkTDsHKmyI9IgmzEWZ4MPdhcig==", "555337681", false, "0c12c4e8-a637-41f3-a225-50ea94ee987d", false, "admin@gmail.com" },
+                    { "87746F88-DC38-4756-924A-B95CFF3A1D8A", 0, "79372107-9d94-4c2a-9d35-a3d7db444a3a", "gio@gmail.com", false, true, null, "GIO@GMAIL.COM", "GIO@GMAIL.COM", "AQAAAAIAAYagAAAAECQNLFF1151UTNUSCyMvylUxLa297kTowSL40Jzb1BaqybFQ8XCU3JOcqVo3nTERhw==", "551442269", false, "74685b74-5da5-40ca-99b6-01b1effee287", false, "gio@gmail.com" },
+                    { "D514EDC9-94BB-416F-AF9D-7C13669689C9", 0, "d0a4b1c3-8072-4389-8f82-0b326be3d559", "nika@gmail.com", false, true, null, "NIKA@GMAIL.COM", "NIKA@GMAIL.COM", "AQAAAAIAAYagAAAAECpxqnlpvbEDsTEgEHsDjDTboB9M52hVVcWKZl6J72kSFCnOKCz3W6LYu8IuawnBkQ==", "558490645", false, "bca6fec0-3618-4e9e-a69c-4da2b691bade", false, "nika@gmail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -243,12 +243,12 @@ namespace Topic.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Topics",
                 columns: new[] { "Id", "CommentsCount", "StartDate", "State", "Status", "Title", "UserId" },
-                values: new object[] { 1, 1, new DateTime(2026, 5, 23, 22, 5, 0, 599, DateTimeKind.Local).AddTicks(8811), 1, 1, "Test", "8716071C-1D9B-48FD-B3D0-F059C4FB8031" });
+                values: new object[] { 1, 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), 1, 1, "Test", "8716071C-1D9B-48FD-B3D0-F059C4FB8031" });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Comment", "PostedDate", "TopicEntityId", "UserId" },
-                values: new object[] { 1, "Test", new DateTime(2026, 5, 23, 22, 5, 0, 599, DateTimeKind.Local).AddTicks(8936), 1, "8716071C-1D9B-48FD-B3D0-F059C4FB8031" });
+                values: new object[] { 1, "Test", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), 1, "8716071C-1D9B-48FD-B3D0-F059C4FB8031" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

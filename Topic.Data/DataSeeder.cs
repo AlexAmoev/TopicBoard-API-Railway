@@ -19,7 +19,7 @@ namespace Topic.Data
                     Id = 1,
                     Title = "Test",
                     CommentsCount = 1,
-                    StartDate = DateTime.Now,
+                    StartDate = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc),
                     //CommentId = 1,
                     State = State.Pending,
                     Status = Status.Active,
@@ -35,7 +35,7 @@ namespace Topic.Data
                 {
                     Id = 1,
                     Comment = "Test",
-                    PostedDate = DateTime.Now,
+                    PostedDate = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc),
                     TopicEntityId = 1,
                     //TopicEntityId = 1,
                     UserId = "8716071C-1D9B-48FD-B3D0-F059C4FB8031"
